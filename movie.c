@@ -15,6 +15,6 @@ movie* create(const char* name, const char* director, int rate)
 
 void movie_print(const movie* m)
 {
-	debug("Move info: name: %s, director: %s, rate: %i\n", 
+	debug("Move info: name: %s, director: %s, rate: %i", 
             m->name, m->director, m->rate);
 }
