@@ -6,9 +6,9 @@ int main()
 	debug("start movie...");
 
 	movie* movie_list[] = {
-		create("Limbo", 5),
-		create("Inception", 7),
-		create("CrazyZoom", 7)
+		create("Limbo", "ab", 5),
+		create("Inception","bc", 7),
+		create("CrazyZoom","cd", 7)
 	};
 
 	int len = sizeof(movie_list)/sizeof(movie*);
@@ -29,3 +29,6 @@ int main()
 
 	return 0;
 }
+
+
+
