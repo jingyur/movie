@@ -7,7 +7,7 @@ typedef struct {
 	int rate;
 } movie;
 
-void debug(const char* log);
+void debug(const char* fmt, ...);
 
 movie* create(const char* name, const char* director, int rate);
 

@@ -13,7 +13,7 @@ int main()
 
 	int len = sizeof(movie_list)/sizeof(movie*);
 
-	printf("movie list length %i\n", len);
+	debug("movie list length %i\n", len);
 
 	for(int i = 0; i < len; ++i) {
 		movie_print(movie_list[i]);
