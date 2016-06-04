@@ -1,6 +1,13 @@
 #include <stdio.h>
+#include "movie.h"
 
 int main()
 {
-	printf("hello, world!");
+	debug("start movie...");
+
+	/*  */
+
+	debug("end movie...");
+
+	return 0;
 }
