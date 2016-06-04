@@ -1,25 +1,14 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
 
+#include "utility.h"
 #include "movie.h"
-
-void debug(const char* fmt, ...)
-{
-    va_list args;
-
-    va_start(args, fmt);
-    vfprintf(stdout, fmt, args);
-    fprintf(stdout, "\n");
-    va_end(args);
-}
 
 movie* create(const char* name, const char* director, int rate)
 {
 	movie* m = (movie*)malloc(sizeof(movie));
 	strncpy(m->name, name, strlen(name));
-    strncpy(m->director, director, strlen(director));
+    	strncpy(m->director, director, strlen(director));
 	m->rate = rate;
 	return m;
 }
