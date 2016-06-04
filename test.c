@@ -7,9 +7,9 @@
 int main()
 {
 	movie* movie_list[] = {
-		create("Limbo", "ab", 5),
-		create("Inception","bc", 7),
-		create("CrazyZoom","cd", 7)
+		movie_create("Limbo", "ab", 5),
+		movie_create("Inception","bc", 7),
+		movie_create("CrazyZoom","cd", 7)
 	};
 
 	int len = sizeof(movie_list)/sizeof(movie*);

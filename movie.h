@@ -8,6 +8,5 @@ typedef struct {
 } movie;
 
 
-movie* create(const char* name, const char* director, int rate);
-
+movie* movie_create(const char* name, const char* director, int rate);
 void movie_print(const movie* m);

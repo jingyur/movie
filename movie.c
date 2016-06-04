@@ -4,7 +4,7 @@
 #include "utility.h"
 #include "movie.h"
 
-movie* create(const char* name, const char* director, int rate)
+movie* movie_create(const char* name, const char* director, int rate)
 {
 	movie* m = (movie*)malloc(sizeof(movie));
 	strncpy(m->name, name, strlen(name));
