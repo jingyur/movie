@@ -4,7 +4,23 @@
 #include "movie.h"
 #include "hall.h"
 
-int main()
+void test_hall()
+{
+	hall* h = init_hall();
+    	random_hall_occp(h);
+	hall_print(h);
+
+	hall_preo(h, 3, 5);	
+	hall_print(h);
+		
+	hall_preo(h, 7, 4);	
+	hall_print(h);
+
+	hall_preo_cancel(h, 7, 4);	
+	hall_print(h);
+}
+
+void test_movie()
 {
 	movie* movie_list[] = {
 		movie_create("Limbo", "ab", 5),
@@ -19,4 +35,10 @@ int main()
 	for(int i = 0; i < len; ++i) {
 		movie_print(movie_list[i]);
 	}
+}
+
+int main()
+{
+	test_hall();
+	return 0;
 }
