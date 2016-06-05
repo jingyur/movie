@@ -3,27 +3,18 @@
 #include <stdbool.h>
 
 #include "utility.h"
-#include "seat.h"
-
-seat* seat_create(int row, int col, bool occupy)
-{
-	seat* s = (seat*)malloc(sizeof(seat));
-	s->row = row;
-	s->col = col;
-	s->occupy = occupy;
-	return s;
-}
+#include "hall.h"
 
 void seat_print(const seat* s)
 {
-	if(s->occupy == true) {
-		debug("[x]");
+	if(s->occupy) {
+		printf("[x]");
 	} else {
-		debug("[_]");
+		printf("[_]");
 	}
 }
 
-bool occupy_seat(hall* h, int r, int c)
+bool hall_occp(hall* h, int r, int c)
 {
 	seat* s = &(h->seats[r][c]);
 	if(s->occupy) {
@@ -37,29 +28,34 @@ bool occupy_seat(hall* h, int r, int c)
 
 hall* init_hall()
 {
-	hall* h = (hall*)malloc(sizeof(hall));
-	seat** seats = h->seats; 
+    seat** seats = (seat**) malloc(sizeof(seat*) * MAX_ROW);
 
 	for(int i = 0; i < MAX_ROW; ++i) {
+        seats[i] = (seat*) malloc(sizeof(seat) * MAX_COL);
 		for(int j = 0; j < MAX_COL; ++j) {
-			seat* s = &seats[i][j];
+			seat* s = &(seats[i][j]);
 			s->row = i;
 			s->col = j;
 			s->occupy = false;
 		}
 	}
 
+	hall* h = (hall*)malloc(sizeof(hall));
+    h->seats = seats;
+
 	return h;
 }
 
 void hall_print(const hall* h)
 {
+    printf("---------- SCREEN ------------\n");
+
 	seat** seats = h->seats;
 	for(int i = 0; i < MAX_ROW; ++i) {
 		for(int j = 0; j < MAX_COL; ++j) {
-			const seat* s = &seats[i][j];
-			seat_print(s);
+			seat_print(&seats[i][j]);
 		}
-		debug("\n");
+		printf("\n");
 	}
+    printf("------------------------------\n");
 }

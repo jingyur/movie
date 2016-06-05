@@ -10,14 +10,12 @@ typedef struct {
 } seat;
 
 typedef struct {
-	seat seats[MAX_ROW][MAX_COL];
-}hall;      	
-
-seat* seat_create(int row, int col, bool occupy);
-void seat_print(const seat* s);
-
-bool occupy_seat(hall* h, int row, int col);
+	seat** seats;
+} hall;      	
 
 hall* init_hall();
 
+void seat_print(const seat* s);
+
+bool hall_occp(hall* h, int row, int col);
 void hall_print(const hall* h);
