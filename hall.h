@@ -19,6 +19,7 @@ hall* random_hall_occp(hall* h);
 
 void seat_print(const seat* s);
 
+float hall_use_rate(const hall* h);
 bool hall_occp(hall* h, int row, int col);
 bool hall_preo(hall* h, int row, int col);
 bool hall_preo_cancel(hall* h, int row, int col);
