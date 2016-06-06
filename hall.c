@@ -96,8 +96,26 @@ hall* random_hall_occp(hall* h)
     return h;
 }
 
+float hall_use_rate(const hall* h)
+{
+	int total = 0;
+	int used = 0;
+	for(int i = 0; i < MAX_ROW; ++i) {
+		for(int j = 0; j <MAX_COL; ++j) {
+			total ++;
+			seat* s=&(h->seats [i][j]);
+			if (s->occupy)
+				used ++;
+		}
+	}
+	float use_rate;
+	use_rate = (float)used / total *100;
+	return use_rate;
+}
+
 void hall_print(const hall* h)
 {
+    printf("the use_rate of this hall is %.2f%%\n.",hall_use_rate(h) );
     printf("---------- SCREEN ------------\n");
 
 	seat** seats = h->seats;
