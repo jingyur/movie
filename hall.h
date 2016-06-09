@@ -14,12 +14,13 @@ typedef struct {
  	bool occupy;
 } seat;
 
-typedef struct {
+typedef struct hall {
 	seat** seats;
 	int price;
 
 	struct theatre* theatre;
 	struct movie* movie;
+    struct hall* next;
 } hall;      	
 
 typedef struct theatre {
@@ -38,8 +39,8 @@ bool hall_preo_cancel(hall* h, int row, int col);
 void hall_print(const hall* h);
 hall* hall_price(hall* h, int p);
 
-hall* hall_bind_theatre(hall* h,theatre* t);
-hall* hall_bind_movie(hall* h,movie* m);
+hall* hall_bind_theatre(hall* h, theatre* t);
+hall* hall_bind_movie(hall* h, struct movie* m);
 
 theatre* theatre_create(const char* name);
 
