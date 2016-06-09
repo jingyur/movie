@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 
 #include "utility.h"
 #include "hall.h"
@@ -16,6 +17,24 @@ void seat_print(const seat* s)
 		printf("[_]");      
 }
 
+hall* hall_bind_theatre(hall* h, theatre* t)
+{
+	h->theatre = t;
+	return h;
+}
+
+hall* hall_bind_movie(hall* h, movie* m)
+{
+	h->movie = m;
+	return h;
+}
+
+hall*  hall_price(hall* h, int p)
+{
+	h->price = p;
+	return h;
+}
+		
 bool hall_occp(hall* h, int r, int c)
 {
 	seat* s = &(h->seats[r][c]);
@@ -23,7 +42,7 @@ bool hall_occp(hall* h, int r, int c)
 		debug("want to occupy seat(%i:%i) failed.", r, c);
 		return false;
 	} else if (s->preo) {
-		debug("occupy succeed", r, c);
+		//debug("occupy succeed", r, c);
 		s->occupy = true;
 		return true;
 	} else {
@@ -53,7 +72,7 @@ bool hall_preo_cancel(hall* h, int r, int c)
 		debug("want to cancel seat(%i:%i) failed.", r, c);
 		return false;
 	} else if (s->preo){
-		debug("want to cancel seat(%i:%i) success.", r, c);
+		//debug("want to cancel seat(%i:%i) success.", r, c);
 		s->preo =false;
 		return true;
 	}
@@ -115,7 +134,9 @@ float hall_use_rate(const hall* h)
 
 void hall_print(const hall* h)
 {
-    printf("the use_rate of this hall is %.2f%%\n.",hall_use_rate(h) );
+    printf("the use_rate of this hall is %.2f%%\n",hall_use_rate(h) );
+    printf("the price of this hall is %i\n",h->price);
+    printf("the hall is belong to this theatre %s\n",h->theatre->name);
     printf("---------- SCREEN ------------\n");
 
 	seat** seats = h->seats;
@@ -127,3 +148,27 @@ void hall_print(const hall* h)
 	}
     printf("------------------------------\n");
 }
+
+theatre* theatre_create(const char* name)
+{
+	theatre* t = (theatre*)malloc(sizeof(theatre));
+	strncpy(t->name, name, strlen(name)+1);
+	return t;
+}
+
+void theatre_print(const theatre* t)
+{
+	debug("Theatre info: name: %s",  t->name);
+}
+
+
+
+
+
+
+
+
+
+
+
+
