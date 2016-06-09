@@ -37,8 +37,44 @@ void test_movie()
 	}
 }
 
+void test_theatre()
+{
+	theatre* theatre_list[] = {
+		theatre_create("Wanda"),
+		theatre_create("Xingmei"),
+	};
+
+	int len = sizeof(theatre_list)/sizeof(theatre*);
+
+	debug("theatre list length %i", len);
+
+	for(int i = 0; i < len; ++i) {
+		theatre_print(theatre_list[i]);
+	}
+}
+
+
 int main()
 {
-	test_hall();
+	test_theatre();
 	return 0;
 }
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

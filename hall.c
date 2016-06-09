@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 
 #include "utility.h"
 #include "hall.h"
@@ -127,3 +128,27 @@ void hall_print(const hall* h)
 	}
     printf("------------------------------\n");
 }
+
+theatre* theatre_create(const char* name)
+{
+	theatre* t = (theatre*)malloc(sizeof(theatre));
+	strncpy(t->name, name, strlen(name)+1);
+	return t;
+}
+
+void theatre_print(const theatre* t)
+{
+	debug("Theatre info: name: %s",  t->name);
+}
+
+
+
+
+
+
+
+
+
+
+
+

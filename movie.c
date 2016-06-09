@@ -7,8 +7,8 @@
 movie* movie_create(const char* name, const char* director, int rate)
 {
 	movie* m = (movie*)malloc(sizeof(movie));
-	strncpy(m->name, name, strlen(name));
-    	strncpy(m->director, director, strlen(director));
+	strncpy(m->name, name, strlen(name)+1);
+    	strncpy(m->director, director, strlen(director)+1);
 	m->rate = rate;
 	return m;
 }
