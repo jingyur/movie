@@ -4,25 +4,29 @@
 #include "movie.h"
 #include "hall.h"
 
-hall* init_hall_random(int p)
+hall* init_hall_random(int p, theatre* t)
 {
 	hall* h = init_hall();
 	random_hall_occp(h);
 	hall_price(h, p);
+	hall_bind_theatre(h,t);
 	hall_print(h);
 	return h;
 }
 
 void test_hall2()
 {
-	init_hall_random(70);
-	init_hall_random(40);
-	init_hall_random(50);
-	init_hall_random(90);
-	init_hall_random(150);
-	init_hall_random(130);
-	init_hall_random(100);
-	init_hall_random(80);
+	theatre* wd = theatre_create("Wanda");
+	theatre* xm = theatre_create("Xingmei");
+
+	init_hall_random(70,wd);
+	init_hall_random(40,wd);
+	init_hall_random(50,wd);
+	init_hall_random(90,wd);
+	init_hall_random(150,wd);
+	init_hall_random(130,xm);
+	init_hall_random(100,xm);
+	init_hall_random(80,xm);
 }
 
 void test_hall()

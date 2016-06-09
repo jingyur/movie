@@ -3,6 +3,10 @@
 #define MAX_ROW 10
 #define MAX_COL 10
 #define THEATRE_NAME_LEN 64
+
+struct theatre;
+struct movie;
+
 typedef struct {
 	int row;
  	int col;
@@ -13,9 +17,11 @@ typedef struct {
 typedef struct {
 	seat** seats;
 	int price;
+
+	struct theatre* theatre;
 } hall;      	
 
-typedef struct {
+typedef struct theatre {
 	char name[THEATRE_NAME_LEN+1];
 }theatre;
 
@@ -29,7 +35,9 @@ bool hall_occp(hall* h, int row, int col);
 bool hall_preo(hall* h, int row, int col);
 bool hall_preo_cancel(hall* h, int row, int col);
 void hall_print(const hall* h);
-void hall_price(hall* h, int p);
+hall* hall_price(hall* h, int p);
+
+hall* hall_bind_theatre(hall* h,theatre* t);
 
 theatre* theatre_create(const char* name);
 
