@@ -4,10 +4,32 @@
 #include "movie.h"
 #include "hall.h"
 
+hall* init_hall_random(int p)
+{
+	hall* h = init_hall();
+	random_hall_occp(h);
+	hall_price(h, p);
+	hall_print(h);
+	return h;
+}
+
+void test_hall2()
+{
+	init_hall_random(70);
+	init_hall_random(40);
+	init_hall_random(50);
+	init_hall_random(90);
+	init_hall_random(150);
+	init_hall_random(130);
+	init_hall_random(100);
+	init_hall_random(80);
+}
+
 void test_hall()
 {
 	hall* h = init_hall();
     	random_hall_occp(h);
+	hall_price(h,80);
 	hall_print(h);
 
 	hall_preo(h, 3, 5);	
@@ -56,25 +78,6 @@ void test_theatre()
 
 int main()
 {
-	test_theatre();
+	test_hall2();
 	return 0;
 }
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,6 +12,7 @@ typedef struct {
 
 typedef struct {
 	seat** seats;
+	int price;
 } hall;      	
 
 typedef struct {
@@ -28,6 +29,7 @@ bool hall_occp(hall* h, int row, int col);
 bool hall_preo(hall* h, int row, int col);
 bool hall_preo_cancel(hall* h, int row, int col);
 void hall_print(const hall* h);
+void hall_price(hall* h, int p);
 
 theatre* theatre_create(const char* name);
 
