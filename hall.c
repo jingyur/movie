@@ -23,6 +23,12 @@ hall* hall_bind_theatre(hall* h, theatre* t)
 	return h;
 }
 
+hall* hall_bind_movie(hall* h, movie* m)
+{
+	h->movie = m;
+	return h;
+}
+
 hall*  hall_price(hall* h, int p)
 {
 	h->price = p;
