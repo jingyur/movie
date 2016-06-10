@@ -59,6 +59,34 @@ int movie_hall_count( movie* m)
 	return c;
 }
 
+movie* movie_select(movie* list, int index)
+{
+	int c = movie_count(list);
+	if(index > c) {
+		return NULL;
+	}
+	
+	movie* p = list;
+	while(--index) {
+		p = p->next;
+	}
+	return p;
+}
+
+hall* movie_hall_select(movie* m, int index)
+{
+	int c = movie_hall_count(m);
+	if(index > c) {
+		return NULL;
+	}
+	
+	hall* p = m->halls;
+	while(--index) {
+		p = p->next;
+	}
+	return p;
+}
+
 void movie_print(const movie* m)
 {
 	debug("Move info: name: %s, director: %s, rate: %i", 

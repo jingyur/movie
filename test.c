@@ -37,15 +37,32 @@ void test_hall2()
 	init_hall_random(120,xm, mw);
 	init_hall_random(100,xm, mx);
 	init_hall_random(80,xm, mb);
-/*
+
     movie_print_with_hall(mw);
-    movie_print_with_hall(mx);  */
+    movie_print_with_hall(mx);  
     movie_print_with_hall(mb);
 
 	debug("movie list len %i", movie_count(mw));
 	debug("movie shows on these halls: %i\n", movie_hall_count(mw));
-	
+
+	debug("movie select : %s", (movie_select(mw, 2))->name);
+
+	movie* pm = movie_select(mw, 2);
+	hall* ph = movie_hall_select(pm, 2);
+	debug("movie(%s) hall select : %s, price: %d", pm->name, ph->theatre->name, ph->price);
+	hall_print(ph);
+
+	pm = movie_select(mw, 3);
+	ph = movie_hall_select(pm, 1);
+	debug("movie(%s) hall select : %s, price: %d", pm->name, ph->theatre->name, ph->price);
+        hall_print(ph); 
+
+	pm = movie_select(mw, 1);
+	ph = movie_hall_select(pm, 3);
+	debug("movie(%s) hall select : %s, price: %d", pm->name, ph->theatre->name, ph->price);
+        hall_print(ph); 
 }
+
 
 void test_hall()
 {
