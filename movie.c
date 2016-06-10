@@ -19,6 +19,46 @@ movie* movie_create(const char* name, const char* director, int rate)
 	return m;
 }
 
+movie* movie_append(movie* m1, movie* m2)
+{
+	movie* p = m1->next;
+	if (!p) {
+		m1->next = m2;
+	} else {
+		while(p->next ){
+			p = p->next;
+		}
+		p->next = m2;
+	}
+	return m1;
+}
+
+int movie_count( movie* list)
+{
+	if(!list){
+		return 0;
+	} 
+		int c= 1;
+		movie* p = list;
+		while((p = p->next)) {
+			++c;
+		}
+	return c;
+}
+
+int movie_hall_count( movie* m)
+{
+	if(!m || !m->halls){
+		return 0;
+	} 
+		int c = 1;
+		hall* p = m->halls;
+		while((p = p->next)) {
+			++c;
+		}
+	return c;
+}
+
 void movie_print(const movie* m)
 {
 	debug("Move info: name: %s, director: %s, rate: %i", 
