@@ -34,7 +34,7 @@ void seat_print(const seat* s);
 
 float hall_use_rate(const hall* h);
 bool hall_occp(hall* h, int row, int col);
-bool hall_preo(hall* h, int row, int col);
+seat* hall_preo(hall* h, int row, int col);
 bool hall_preo_cancel(hall* h, int row, int col);
 void hall_print(const hall* h);
 hall* hall_price(hall* h, int p);

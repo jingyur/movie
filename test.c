@@ -4,6 +4,7 @@
 #include "utility.h"
 #include "movie.h"
 #include "hall.h"
+#include "io.h"
 
 hall* init_hall_random(int p, theatre* t, movie* m)
 {
@@ -38,6 +39,9 @@ void test_hall2()
 	init_hall_random(100,xm, mx);
 	init_hall_random(80,xm, mb);
 
+    do_run(mw);
+
+    /*
     movie_print_with_hall(mw);
     movie_print_with_hall(mx);  
     movie_print_with_hall(mb);
@@ -61,6 +65,7 @@ void test_hall2()
 	ph = movie_hall_select(pm, 3);
 	debug("movie(%s) hall select : %s, price: %d", pm->name, ph->theatre->name, ph->price);
         hall_print(ph); 
+    */
 }
 
 
