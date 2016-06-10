@@ -64,19 +64,19 @@ bool hall_occp(hall* h, int r, int c)
 	}
 }
 
-bool hall_preo(hall* h, int r, int c)
+seat* hall_preo(hall* h, int r, int c)
 {
 	seat* s = &(h->seats [r][c]);
 	if(s->occupy) {
 		debug("want to occupy seat(%i:%i) failed.", r, c);
-		return false;
+		return NULL;
 	} else if (s->preo){
 		debug("want to preo seat(%i:%i) failed.", r, c);
-		return false;
+		return NULL;
 	} else {
-                s->preo = true;
-		return true;
+        s->preo = true;
 	}
+    return s;
 }
 
 bool hall_preo_cancel(hall* h, int r, int c)
