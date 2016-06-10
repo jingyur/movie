@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <time.h>
 #include <string.h>
 
 #include "utility.h"
@@ -125,8 +124,6 @@ hall* init_hall()
 
 hall* random_hall_occp(hall* h)
 {
-    srand(time(NULL));
-
     for(int i = 0; i < MAX_ROW; ++i) {
         for(int j = 0; j < MAX_COL; ++j) {
             if(rand() % 100 > 80) {

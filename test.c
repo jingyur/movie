@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <time.h>
 
 #include "utility.h"
 #include "movie.h"
@@ -92,6 +93,7 @@ void test_theatre()
 
 int main()
 {
+        srand(time(NULL));
 	test_hall2();
 	return 0;
 }
